@@ -16,6 +16,9 @@ var third_pose = new PIXI.Sprite(
   PIXI.Texture.from("realMcCoy3.png") );
 var fourth_pose = new PIXI.Sprite(
   PIXI.Texture.from("realMcCoy4.png") );
+var background = new PIXI.Sprite(
+  PIXI.Texture.from("DanceFloor.png") );
+
 
 //Create copy of poses for ease in animation
 var arrSprites = [];
@@ -37,7 +40,11 @@ dance_floor1.position.x = 200;
 dance_floor1.position.y = 200;
 stage.addChild(dance_floor1);
 
-dance_floor1.addChild(first_pose)
+dance_floor1.addChild(background);
+background.position.x = -200;
+background.position.y = -200;
+
+dance_floor1.addChild(first_pose);
 first_pose.anchor.x = 0.5;
 first_pose.anchor.y = 0.5;
 first_pose.position.x = 0;
@@ -62,7 +69,7 @@ fourth_pose.position.y = 0;
 function mouseHandle(e)
 {
   //subtraction because sprites initially centered
-  var new_x = Math.floor(Math.random() * 150) - 150;
+  var new_x = Math.floor(Math.random() * 300) - 150;
   var new_y = Math.floor(Math.random() * 300) - 150;
   console.log("newx:" + new_x + "and new_y: " + new_y);
   // Move all sprites to same new position
